@@ -1,47 +1,97 @@
-Support Chat Widget — Email Setup Steps
+Support Chat Widget (JivoChat Integration)
 
-1. Add the JivoChat Widget to Your Website
+This project integrates the official JivoChat widget to provide live support chat on the website.
+JivoChat automatically switches between real-time chat and email forwarding depending on agent availability.
+No backend server is required.
 
-a. Go to your JivoChat dashboard
+Features
+1. Live Chat (When Agent is Online)
 
-b. Open Channels → Website Widget
+Visitors see a live chat window powered by JivoChat.
 
-c. Copy the Jivo installation script
+Messages appear instantly in the Jivo agent dashboard.
 
-d. Paste the script inside your site’s index.html (before </body>)
+Supports typing indicators, read receipts, and operator responses.
 
-2. Configure Support Email (Where Offline Messages + Logs Will Go)
+2. Email Forwarding (When Agent is Offline)
 
-a. In the Jivo dashboard, go to Channels
+If all agents are offline, Jivo automatically shows the offline contact form.
 
-b. Select your Website Widget
+Messages submitted through this form are sent directly to the configured support email.
 
-c. Open Notifications
+Useful for 24/7 monitoring of customer queries via inbox.
 
-d. Add your support email under:
+How to Configure Support Email
+
+Follow these steps inside your JivoChat Dashboard:
+
+1. Go to Channels
+
+Log in to your JivoChat dashboard.
+
+Navigate to Channels from the left sidebar.
+
+2. Select Website Widget
+
+Open your website widget settings.
+
+3. Open Notifications
+
+Inside the Website Widget, go to Notifications.
+
+4. Configure Email Addresses
+
+Add your support email under these two fields:
 
 Email for Chat Logs and Notifications
 
 Email for Offline Messages
 
-e. Confirm the email address (a confirmation email will be sent to your inbox)
+5. Confirm the Email
 
-3. Make Sure Jivo Can Send Emails
+JivoChat sends a confirmation link to your email.
+Open your inbox and click Confirm.
+Only after confirmation will JivoChat start forwarding messages.
 
-a. Open your inbox and click Confirm in the email from JivoChat
+After confirmation:
 
-b. Once confirmed, the status will change from “awaiting confirmation” to confirmed
+Offline messages → go to email
 
-4. When Emails Will Be Sent
+Missed chats → go to email
 
-JivoChat automatically sends emails when:
+Chat transcripts → go to email
 
-Agents are offline and a user submits a message
+Integration Code
 
-A chat is missed
+Add the JivoChat script to your index.html line 12:
 
-A chat transcript is generated
+<script src="//code.jivosite.com/widget/XXXXXXXXXX" async></script>
 
-The offline contact form is submitted
 
-No backend or additional code is required.
+Replace XXXXXXXXXX with your real widget ID from Jivo.
+
+This is the only code required.
+JivoChat handles chat UI, communication, email routing, and presence detection.
+
+How the System Works
+When Agent is ONLINE
+
+Live chat widget is active
+
+User messages appear in the Jivo agent interface
+
+Agents can reply in real-time
+
+When Agent is OFFLINE
+
+Offline form appears
+
+User message is forwarded to the support email configured in Notifications
+
+Additional Behavior
+
+Missed chats get emailed automatically
+
+Chat transcripts can be emailed automatically
+
+No backend or SMTP server is required
