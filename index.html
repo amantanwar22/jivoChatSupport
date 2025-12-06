@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hypercare Chat Widget</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .chat-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .chat-button:hover {
+      opacity: 0.9;
+    }
+
+    .chat-window {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chat-header {
+      background: #4f46e5;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .chat-header-subtitle {
+      font-weight: normal;
+      font-size: 11px;
+      margin-top: 4px;
+      opacity: 0.9;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 14px;
+      background: #f9fafb;
+    }
+
+    .chat-input-area {
+      display: flex;
+      border-top: 1px solid #ddd;
+      background: #fff;
+    }
+
+    .chat-input {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .send-btn {
+      background: #4f46e5;
+      color: white;
+      border: none;
+      padding: 0 15px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .message {
+      margin: 8px 0;
+      max-width: 80%;
+    }
+
+    .user {
+      text-align: right;
+      margin-left: auto;
+      color: #fff;
+      background: #4f46e5;
+      padding: 6px 10px;
+      border-radius: 12px 12px 0 12px;
+    }
+
+    .agent {
+      text-align: left;
+      margin-right: auto;
+      color: #111827;
+      background: #e5e7eb;
+      padding: 6px 10px;
+      border-radius: 12px 12px 12px 0;
+    }
+
+    .typing-indicator {
+      display: flex;
+      gap: 4px;
+      padding: 10px;
+      align-items: center;
+    }
+
+    .typing-indicator span {
+      width: 8px;
+      height: 8px;
+      background: #9ca3af;
+      border-radius: 50%;
+      animation: bounce 1.4s infinite ease-in-out;
+    }
+
+    .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+    .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+
+    @keyframes bounce {
+      0%, 80%, 100% { transform: scale(0); }
+      40% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="chat-button" id="chatButton">💬</button>
+
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      Support
+      <div class="chat-header-subtitle">
+        Typically replies in a few seconds · Or email:
+        <span style="text-decoration: underline;">
+          support@company.com
+        </span>
+      </div>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      <div class="agent message">
+        Hi there <br />
+        How can I help you today?
+      </div>
+    </div>
+
+    <div class="chat-input-area">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Type a message..." />
+      <button class="send-btn" id="sendBtn">Send</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
