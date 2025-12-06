@@ -1,9 +1,47 @@
-Support Chat Widget
+Support Chat Widget — Email Setup Steps
 
-1. How to add support email:
+1. Add the JivoChat Widget to Your Website
 
-a. Go to your jivochat dashboard
+a. Go to your JivoChat dashboard
 
-b.Then go to channels.
+b. Open Channels → Website Widget
 
-c.Then go to notifications and from here you can configure your mail for offline messages and chats.
+c. Copy the Jivo installation script
+
+d. Paste the script inside your site’s index.html (before </body>)
+
+2. Configure Support Email (Where Offline Messages + Logs Will Go)
+
+a. In the Jivo dashboard, go to Channels
+
+b. Select your Website Widget
+
+c. Open Notifications
+
+d. Add your support email under:
+
+Email for Chat Logs and Notifications
+
+Email for Offline Messages
+
+e. Confirm the email address (a confirmation email will be sent to your inbox)
+
+3. Make Sure Jivo Can Send Emails
+
+a. Open your inbox and click Confirm in the email from JivoChat
+
+b. Once confirmed, the status will change from “awaiting confirmation” to confirmed
+
+4. When Emails Will Be Sent
+
+JivoChat automatically sends emails when:
+
+Agents are offline and a user submits a message
+
+A chat is missed
+
+A chat transcript is generated
+
+The offline contact form is submitted
+
+No backend or additional code is required.
